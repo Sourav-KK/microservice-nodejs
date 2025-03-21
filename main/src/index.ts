@@ -11,12 +11,17 @@ import router from "./routes/index";
 const app: Express = express();
 const PORT_NO = 3000;
 
-app.use(cors({ origin: ["http://localhost/4000", "http://localhost/4001"] }));
+app.use(
+  cors({
+    origin: ["http://localhost/4000", "http://localhost/4001"],
+    methods: ["GET"],
+  })
+);
 app.use(json());
 app.use(helmet({}));
 app.use(cookieParser());
 app.use(compression({}));
-app.use(expressRateLimit());
+app.use(expressRateLimit({}));
 app.use(urlencoded({ extended: true }));
 
 app.use("/api", router);

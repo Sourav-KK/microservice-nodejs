@@ -21,7 +21,8 @@ const findOne = async (req: Request, res: Response) => {
 
     if (!response) {
       // If no matching product was found, send a 404 response
-      return res.status(404).json({ message: "Product not found" });
+      res.status(404).json({ message: "Product not found" });
+      return;
     }
 
     res.status(200).json(response);

@@ -9,7 +9,7 @@ import router from "./routes/index";
 const app: Express = express();
 const PORT_NO = 4000;
 
-app.use(cors({}));
+app.use(cors({ origin: "http://localhost/3000/api/user", methods: ["GET"] }));
 app.use(json());
 app.use(helmet({}));
 app.use(cookieParser());
